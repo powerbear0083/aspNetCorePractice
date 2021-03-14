@@ -22,6 +22,29 @@ namespace MockSchoolManagement.Controllers
         {
             return _studentRepository.GetStudent(1).Name;
         }
+        /// <summary>
+        /// 回傳 Json 格式
+        /// </summary>
+        /// <returns></returns>
+        //public JsonResult Details()
+        //{
+        //    Student model = _studentRepository.GetStudent(1);
+        //    return Json(model);
+        //}
+
+
+        public ViewResult Details()
+        {
+            Student model = _studentRepository.GetStudent(1);
+            //ViewData["PageTitel"] = "Student Details";
+            //ViewData["Student"] = model;
+            
+
+            ViewBag.PageTitle = "Student Details 2";
+
+            return View(model);
+        }
+
         //private readonly ILogger<HomeController> _logger;
 
         //public HomeController(ILogger<HomeController> logger)

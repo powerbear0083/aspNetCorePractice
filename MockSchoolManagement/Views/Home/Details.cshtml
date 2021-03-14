@@ -1,0 +1,22 @@
+﻿@model MockSchoolManagement.Models.Student;
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>@ViewBag.PageTitle</h1>
+    @*@{var student = ViewData["Student"] as Student;}*@
+    <ul>
+        <li>
+            Name: @Model.Name
+        </li>
+        <li>
+            Mail: @Model.Email
+        </li>
+        <li>
+            Major: @Model.Major
+        </li>
+    </ul>
+</body>
+</html>
