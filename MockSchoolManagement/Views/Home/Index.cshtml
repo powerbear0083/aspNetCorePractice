@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<MockSchoolManagement.Models.Student>;
+@{
+    ViewBag.Title = "Student List";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>Major</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td> @student.Id </td>
+                <td>  @student.Name  </td>
+                <td>  @student.Major </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        console.log("index")
+    </script>
+} 

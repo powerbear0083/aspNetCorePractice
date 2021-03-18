@@ -1,22 +1,23 @@
-﻿@model MockSchoolManagement.Models.Student;
+﻿@model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
+@*@{var student = ViewData["Student"] as Student;}*@
+@{ 
+    ViewBag.Title = "Student Details";
+}
+<h1>@Model.PageTitle</h1>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>@ViewBag.PageTitle</h1>
-    @*@{var student = ViewData["Student"] as Student;}*@
-    <ul>
-        <li>
-            Name: @Model.Name
-        </li>
-        <li>
-            Mail: @Model.Email
-        </li>
-        <li>
-            Major: @Model.Major
-        </li>
-    </ul>
-</body>
-</html>
+<ul>
+    <li>
+        Name: @Model.Student.Name
+    </li>
+    <li>
+        Mail: @Model.Student.Email
+    </li>
+    <li>
+        Major: @Model.Student.Major
+    </li>
+</ul>
+@section Scripts {
+    <script>
+        console.log("details")
+    </script>
+} 

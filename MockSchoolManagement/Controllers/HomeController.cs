@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MockSchoolManagement.DataRepositories;
 using MockSchoolManagement.Models;
+using MockSchoolManagement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,10 +19,63 @@ namespace MockSchoolManagement.Controllers
         {
             _studentRepository = new MockStudentRepository();
         }
-        public string Index()
+
+        /// <summary>
+        /// 回傳一個陣列
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult Index()
         {
-            return _studentRepository.GetStudent(1).Name;
+            var model = _studentRepository.GetAllStudents();
+            return View(model);
         }
+
+        /// <summary>
+        /// 回傳一筆資料
+        /// </summary>
+        /// <returns></returns>
+        //public string Index()
+        //{
+        //    return _studentRepository.GetStudent(1).Name;
+        //}
+
+        public ViewResult Details()
+        {
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Student = _studentRepository.GetStudent(1),
+                PageTitle = "Student Details ViewModel"
+            };
+
+            return View(homeDetailsViewModel);
+        }
+
+        /// <summary>
+        /// ViewBag
+        /// </summary>
+        /// <returns></returns>
+        //public ViewResult Details()
+        //{
+        //    Student model = _studentRepository.GetStudent(1);
+
+        //    ViewBag.PageTitle = "Student Details 2";
+
+        //    return View(model);
+        //}
+
+        /// <summary>
+        /// ViewData
+        /// </summary>
+        /// <returns></returns>
+        //public ViewResult Details()
+        //{
+        //    Student model = _studentRepository.GetStudent(1);
+        //    ViewData["PageTitel"] = "Student Details";
+        //    ViewData["Student"] = model;
+
+        //    return View(model);
+        //}
+
         /// <summary>
         /// 回傳 Json 格式
         /// </summary>
@@ -31,19 +85,6 @@ namespace MockSchoolManagement.Controllers
         //    Student model = _studentRepository.GetStudent(1);
         //    return Json(model);
         //}
-
-
-        public ViewResult Details()
-        {
-            Student model = _studentRepository.GetStudent(1);
-            //ViewData["PageTitel"] = "Student Details";
-            //ViewData["Student"] = model;
-            
-
-            ViewBag.PageTitle = "Student Details 2";
-
-            return View(model);
-        }
 
         //private readonly ILogger<HomeController> _logger;
 

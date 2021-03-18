@@ -35,3 +35,4 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.genruntimeconfig.cache
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csproj.CopyComplete
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
+D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csprojAssemblyReference.cache
