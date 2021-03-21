@@ -15,6 +15,7 @@ namespace MockSchoolManagement.Controllers
     {
         private readonly IStudentRepository _studentRepository;
 
+        // 使用 constructor 注入的方式注入 IStudentRepository
         public HomeController(IStudentRepository studentRepository)
         {
             _studentRepository = new MockStudentRepository();
@@ -24,6 +25,8 @@ namespace MockSchoolManagement.Controllers
         /// 回傳一個陣列
         /// </summary>
         /// <returns></returns>
+        [Route("")]
+        [Route("Index")]
         public ViewResult Index()
         {
             var model = _studentRepository.GetAllStudents();
@@ -39,11 +42,21 @@ namespace MockSchoolManagement.Controllers
         //    return _studentRepository.GetStudent(1).Name;
         //}
 
-        public ViewResult Details()
+        /// <summary>
+        /// Details method
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        // 使用 id? 表示參數可為空
+        [Route("Home/Details/{id?}")]
+        // ? 使 id 方法參數可以是空的
+        public ViewResult Details(int?id)
         {
+            // Instantiate 實例化 HomeDetailsViewModel 並儲存 Student 詳細訊息和 PageTitle
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Student = _studentRepository.GetStudent(1),
+                // 如果 id == null 則取第一筆
+                Student = _studentRepository.GetStudent(id??1),
                 PageTitle = "Student Details ViewModel"
             };
 

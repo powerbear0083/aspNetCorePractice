@@ -45,23 +45,30 @@ namespace MockSchoolManagement
             
             app.UseStaticFiles();
 
-            app.UseMvcWithDefaultRoute();
-
-            app.Run(async (context) =>
+            app.UseRouting();
+            // dotnet 開發團隊建議使用
+            app.UseEndpoints(endpoints =>
             {
-                await context.Response.WriteAsync("Hello World");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //app.UseRouting();
+            //app.UseMvc();
+            
+            // 預設 Route 寫法
+            //app.UseMvcWithDefaultRoute();
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World");
+            //});
+
+            
 
             //app.UseAuthorization();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller=Home}/{action=Index}/{id?}");
-            //});
+            
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.MapGet("/", async context =>

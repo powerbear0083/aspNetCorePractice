@@ -20,6 +20,7 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.TagHelpers.input.cache
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.TagHelpers.output.cache
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.RazorCoreGenerate.cache
+D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -34,5 +35,4 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.pdb
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.genruntimeconfig.cache
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csproj.CopyComplete
-D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csprojAssemblyReference.cache
