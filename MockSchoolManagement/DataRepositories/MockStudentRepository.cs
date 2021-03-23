@@ -27,7 +27,7 @@ namespace MockSchoolManagement.DataRepositories
                 {
                     Id = 2,
                     Name =  "John",
-                    Major = "soprt",
+                    Major = "sport",
                     Email = "abc@gmail.com"
 
                 },

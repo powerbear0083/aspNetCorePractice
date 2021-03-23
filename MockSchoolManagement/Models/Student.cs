@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MockSchoolManagement.Models.EnumTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,9 @@ namespace MockSchoolManagement.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Major { get; set; }
+        //public string Major { get; set; }
+        // 將 Major 型別設置為 MajorEnum
+        public MajorEnum Major { get; set; }
         public string Email { get; set; }
     }
 }
