@@ -122,9 +122,30 @@ namespace MockSchoolManagement.Controllers
         //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         //}
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+             return View();
+        }
+        /// <summary>
+        /// 新增學生資訊，並將 User redirect 至 details
+        /// </summary> RedirectToActionResult
+        /// <param name="student"></param>
+        /// <returns></returns>
+
+        [HttpPost]
+        public IActionResult Create(Student student)
+        {
+            if(ModelState.IsValid)
+            {
+                Student newStudent = _studentRepository.Add(student);
+                return RedirectToAction("Details", new { id = newStudent.Id });
+            }
+            else
+            {
+                return View(student);
+            }
+            
         }
     }
 }

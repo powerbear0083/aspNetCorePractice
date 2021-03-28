@@ -26,8 +26,30 @@ using MockSchoolManagement.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\Views\Home\_ViewImports.cshtml"
+using MockSchoolManagement.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\Views\Home\_ViewImports.cshtml"
+using MockSchoolManagement.DataRepositories;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\Views\Home\_ViewImports.cshtml"
+using MockSchoolManagement.Models.EnumTypes;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"04f186c56f8b903c5479163bce527703790560a8", @"/Views/Home/Details.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a0d1aa863c24a80b799eb669bf0f018b768b39f6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4275e4824057d1690d417e1a4c56311267e0fb17", @"/Views/Home/_ViewImports.cshtml")]
     public class Views_Home_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MockSchoolManagement.ViewModels.HomeDetailsViewModel>
     {
         #pragma warning disable 1998
