@@ -18,7 +18,7 @@ namespace MockSchoolManagement.Controllers
         // 使用 constructor 注入的方式注入 IStudentRepository
         public HomeController(IStudentRepository studentRepository)
         {
-            _studentRepository = new MockStudentRepository();
+            _studentRepository = studentRepository;
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace MockSchoolManagement.Controllers
         [Route("Index")]
         public ViewResult Index()
         {
-            var model = _studentRepository.GetAllStudents();
+            IEnumerable<Student> model = _studentRepository.GetAllStudents();
             return View(model);
         }
 
@@ -39,7 +39,7 @@ namespace MockSchoolManagement.Controllers
         /// <returns></returns>
         //public string Index()
         //{
-        //    return _studentRepository.GetStudent(1).Name;
+        //    return _studentRepository.GetStudentById(1).Name;
         //}
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace MockSchoolManagement.Controllers
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
                 // 如果 id == null 則取第一筆
-                Student = _studentRepository.GetStudent(id??1),
+                Student = _studentRepository.GetStudentById(id??1),
                 PageTitle = "Student Details ViewModel"
             };
 
@@ -69,7 +69,7 @@ namespace MockSchoolManagement.Controllers
         /// <returns></returns>
         //public ViewResult Details()
         //{
-        //    Student model = _studentRepository.GetStudent(1);
+        //    Student model = _studentRepository.GetStudentById(1);
 
         //    ViewBag.PageTitle = "Student Details 2";
 
@@ -82,7 +82,7 @@ namespace MockSchoolManagement.Controllers
         /// <returns></returns>
         //public ViewResult Details()
         //{
-        //    Student model = _studentRepository.GetStudent(1);
+        //    Student model = _studentRepository.GetStudentById(1);
         //    ViewData["PageTitel"] = "Student Details";
         //    ViewData["Student"] = model;
 
@@ -95,7 +95,7 @@ namespace MockSchoolManagement.Controllers
         /// <returns></returns>
         //public JsonResult Details()
         //{
-        //    Student model = _studentRepository.GetStudent(1);
+        //    Student model = _studentRepository.GetStudentById(1);
         //    return Json(model);
         //}
 
@@ -138,7 +138,7 @@ namespace MockSchoolManagement.Controllers
         {
             if(ModelState.IsValid)
             {
-                Student newStudent = _studentRepository.Add(student);
+                Student newStudent = _studentRepository.Insert(student);
                 return RedirectToAction("Details", new { id = newStudent.Id });
             }
             else

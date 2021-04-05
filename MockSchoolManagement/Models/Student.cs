@@ -35,5 +35,7 @@ namespace MockSchoolManagement.Models
         ]
         [Required(ErrorMessage = "請輸入 Email，不能為空")]
         public string Email { get; set; }
+
+        public string PhotoPath { get; set; }
     }
 }

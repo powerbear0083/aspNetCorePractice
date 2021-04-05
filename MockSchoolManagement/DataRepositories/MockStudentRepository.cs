@@ -43,11 +43,11 @@ namespace MockSchoolManagement.DataRepositories
         }
 
         /// <summary>
-        /// 實作 IStudentRepository 底下的 Add
+        /// 實作 IStudentRepository 底下的 Insert
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        public Student Add(Student student)
+        public Student Insert(Student student)
         {
             student.Id = _studentList.Max(s => s.Id) + 1;
             _studentList.Add(student);
@@ -59,7 +59,7 @@ namespace MockSchoolManagement.DataRepositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Student GetStudent(int id)
+        public Student GetStudentById(int id)
         {
             return _studentList.FirstOrDefault(a => a.Id == id);
         }
@@ -71,6 +71,43 @@ namespace MockSchoolManagement.DataRepositories
         public IEnumerable<Student> GetAllStudents()
         {
             return _studentList;
+        }
+
+        /// <summary>
+        /// 實作 IStudentRepository 底下的 Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Student Delete(int id)
+        {
+            Student student = _studentList.FirstOrDefault(s => s.Id == id);
+
+            if(student != null)
+            {
+                _studentList.Remove(student);
+            }
+
+            return student;
+
+        }
+
+        /// <summary>
+        /// 實作 IStudentRepository 底下的 Update
+        /// </summary>
+        /// <param name="updateStudent"></param>
+        /// <returns></returns>
+        public Student Update(Student updateStudent)
+        {
+            Student student = _studentList.FirstOrDefault(s => s.Id == updateStudent.Id);
+
+            if (student != null)
+            {
+                student.Name = updateStudent.Name;
+                student.Email = updateStudent.Email;
+                student.Major = updateStudent.Major;
+            }
+
+            return student;
         }
     }
 }

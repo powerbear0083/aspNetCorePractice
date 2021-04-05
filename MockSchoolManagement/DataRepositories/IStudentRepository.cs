@@ -13,7 +13,7 @@ namespace MockSchoolManagement.DataRepositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Student GetStudent(int id);
+        Student GetStudentById(int id);
 
         /// <summary>
         /// 取得學生列表
@@ -26,7 +26,21 @@ namespace MockSchoolManagement.DataRepositories
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        Student Add(Student student);
+        Student Insert(Student student);
+
+        /// <summary>
+        /// 修改學生訊息
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+        Student Update(Student student);
+
+        /// <summary>
+        /// 刪除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Student Delete(int id);
 
     }
 }
