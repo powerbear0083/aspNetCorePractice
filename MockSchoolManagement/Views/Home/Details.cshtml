@@ -1,7 +1,11 @@
 ﻿@model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
-@*@{var student = ViewData["Student"] as Student;}*@
 @{ 
     ViewBag.Title = "Student Details";
+    var photoPath = "~/images/noimage.png";
+    // if (Student.PhotoPath != null)
+    // {
+    //     photoPath = "~/images/avatars/" + Student.PhotoPath;
+    // }
 }
 <h3>@Model.PageTitle</h3>
 <div class="row justify-content-center m-3">
@@ -11,7 +15,7 @@
                 <h1>@Model.Student.Name</h1>
             </div>
             <div class="card-body text-center">
-                <img class="card-img-top" src="//via.placeholder.com/150x150" alt="" />
+                <img class="card-img-top" src="@photoPath" asp-append-version="true" />
                 <h4>Name: @Model.Student.Name</h4>
                 <h4>Mail: @Model.Student.Email</h4>
                 <h4>Major: @Model.Student.Major</h4>

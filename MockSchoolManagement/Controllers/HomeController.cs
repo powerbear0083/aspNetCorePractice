@@ -6,19 +6,24 @@ using MockSchoolManagement.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace MockSchoolManagement.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         // 使用 constructor 注入的方式注入 IStudentRepository
-        public HomeController(IStudentRepository studentRepository)
+        public HomeController(IStudentRepository studentRepository, IWebHostEnvironment webHostEnvironment)
         {
             _studentRepository = studentRepository;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -134,17 +139,37 @@ namespace MockSchoolManagement.Controllers
         /// <returns></returns>
 
         [HttpPost]
-        public IActionResult Create(Student student)
+        public IActionResult Create(StudentCreateViewModel model)
         {
             if(ModelState.IsValid)
             {
-                Student newStudent = _studentRepository.Insert(student);
+                string uniqueFileName = null;
+                if (model.Photos != null && model.Photos.Count > 0 )
+                {
+
+                    foreach (IFormFile photo in model.Photos)
+                    {
+                        // 要將圖片上傳至 wwwroot 的 images 底下
+                        // 要取得 wwwroot 資料夾的路徑, 需要注入 ASP NET Core　提供的 WebHostEnvironment 服務
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    }
+                }
+
+                Student newStudent = new Student
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    Major = model.Major,
+                    PhotoPath = uniqueFileName
+                };
+
+                _studentRepository.Insert(newStudent);
                 return RedirectToAction("Details", new { id = newStudent.Id });
             }
-            else
-            {
-                return View(student);
-            }
+            return View();
             
         }
     }

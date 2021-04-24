@@ -33,6 +33,6 @@ namespace MockSchoolManagement.ViewModels
         public string Email { get; set; }
         
         [Display(Name = "頭像")]
-        public IFormFile Photo { get; set; }
+        public List<IFormFile> Photos { get; set; }
     }
 }
