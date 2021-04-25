@@ -37,7 +37,6 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csproj.CopyComplete
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\libman.json
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
-D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csprojAssemblyReference.cache
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\_ViewImports.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
@@ -72,3 +71,4 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csprojAssemblyReference.cache

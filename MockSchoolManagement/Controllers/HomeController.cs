@@ -154,6 +154,8 @@ namespace MockSchoolManagement.Controllers
                         string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
                         uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
                         string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        // 使用 IFormFile 提供的 CopyTo method 將檔案複製到 wwwroot/images 
+                        // 這邊 wwwroot 底下如果沒有 images 會發出找不到路徑的錯
                         photo.CopyTo(new FileStream(filePath, FileMode.Create));
                     }
                 }

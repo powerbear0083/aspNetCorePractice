@@ -1,11 +1,7 @@
 ﻿@model MockSchoolManagement.ViewModels.HomeDetailsViewModel;
 @{ 
     ViewBag.Title = "Student Details";
-    var photoPath = "~/images/noimage.png";
-    // if (Student.PhotoPath != null)
-    // {
-    //     photoPath = "~/images/avatars/" + Student.PhotoPath;
-    // }
+    var photoPath = "~/images/" + (Model.Student.PhotoPath ?? "noimage.png");
 }
 <h3>@Model.PageTitle</h3>
 <div class="row justify-content-center m-3">
