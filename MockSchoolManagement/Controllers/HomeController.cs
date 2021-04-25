@@ -68,64 +68,7 @@ namespace MockSchoolManagement.Controllers
             return View(homeDetailsViewModel);
         }
 
-        /// <summary>
-        /// ViewBag
-        /// </summary>
-        /// <returns></returns>
-        //public ViewResult Details()
-        //{
-        //    Student model = _studentRepository.GetStudentById(1);
-
-        //    ViewBag.PageTitle = "Student Details 2";
-
-        //    return View(model);
-        //}
-
-        /// <summary>
-        /// ViewData
-        /// </summary>
-        /// <returns></returns>
-        //public ViewResult Details()
-        //{
-        //    Student model = _studentRepository.GetStudentById(1);
-        //    ViewData["PageTitel"] = "Student Details";
-        //    ViewData["Student"] = model;
-
-        //    return View(model);
-        //}
-
-        /// <summary>
-        /// 回傳 Json 格式
-        /// </summary>
-        /// <returns></returns>
-        //public JsonResult Details()
-        //{
-        //    Student model = _studentRepository.GetStudentById(1);
-        //    return Json(model);
-        //}
-
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        
 
         [HttpGet]
         public IActionResult Create()
@@ -174,5 +117,21 @@ namespace MockSchoolManagement.Controllers
             return View();
             
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Student student = _studentRepository.GetStudentById(id);
+            StudentEditViewModel studentEditViewModel = new StudentEditViewModel
+            {
+                Id = student.Id,
+                Name = student.Name,
+                Email = student.Email,
+                Major = student.Major,
+                ExistingPhotoPath = student.PhotoPath
+            };
+            return View(studentEditViewModel);
+        }
+        
     }
 }
