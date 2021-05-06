@@ -71,4 +71,5 @@ D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
 D:\aspNetCore\MoscSchoolManagement\MockSchoolManagement\MockSchoolManagement\obj\Debug\netcoreapp3.1\MockSchoolManagement.csprojAssemblyReference.cache

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -117,7 +118,11 @@ namespace MockSchoolManagement.Controllers
             return View();
             
         }
-
+        /// <summary>
+        /// 編輯
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -132,6 +137,60 @@ namespace MockSchoolManagement.Controllers
             };
             return View(studentEditViewModel);
         }
-        
+
+        /// <summary>
+        /// 修改學生資料
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Edit(StudentEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Student student = _studentRepository.GetStudentById(model.Id);
+                student.Name = model.Name;
+                student.Email = model.Email;
+                student.Major = model.Major;
+
+                if (model.Photos != null && model.Photos.Count > 0)
+                {
+                    if (model.ExistingPhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images",
+                            model.ExistingPhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    student.PhotoPath = ProcessUploadeFile(model);
+                }
+
+                Student updatedstudent = _studentRepository.Update(student);
+                return RedirectToAction("index");
+            }
+            return View(model);
+        }
+
+        private string ProcessUploadeFile(StudentEditViewModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.Photos.Count > 0)
+            {
+                foreach (var photo in model.Photos)
+                {
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        photo.CopyTo(fileStream);
+                    }
+                }
+            }
+
+            return uniqueFileName;
+        }
     }
 }
