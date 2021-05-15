@@ -47,11 +47,13 @@ namespace MockSchoolManagement
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                // app.UseDeveloperExceptionPage();
+                // 為了讓開發模式看到 error page 故這樣使用
+                app.UseStatusCodePagesWithRedirects("~/Error/{0}");
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("~/Error/{0}");
             }
 
             
