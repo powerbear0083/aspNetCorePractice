@@ -59,7 +59,7 @@ namespace MockSchoolManagement.DataRepositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Student GetStudentById(int id)
+        public Student GetStudentById(int? id)
         {
             return _studentList.FirstOrDefault(a => a.Id == id);
         }

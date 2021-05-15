@@ -58,12 +58,20 @@ namespace MockSchoolManagement.Controllers
         // ? 使 id 方法參數可以是空的
         public ViewResult Details(int?id)
         {
+
+            // GetStudentById 介面方法要重新定義，不然會報錯
+            var student = _studentRepository.GetStudentById(id);
+            if (student == null)
+            {
+                Response.StatusCode = 404;
+                return View("StudentNotFound", id);
+            }
             // Instantiate 實例化 HomeDetailsViewModel 並儲存 Student 詳細訊息和 PageTitle
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
                 // 如果 id == null 則取第一筆
                 Student = _studentRepository.GetStudentById(id??1),
-                PageTitle = "Student Details ViewModel"
+                PageTitle = $"Student Details "
             };
 
             return View(homeDetailsViewModel);

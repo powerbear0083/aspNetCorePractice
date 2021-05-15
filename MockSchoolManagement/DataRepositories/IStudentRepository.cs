@@ -13,7 +13,7 @@ namespace MockSchoolManagement.DataRepositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Student GetStudentById(int id);
+        Student GetStudentById(int? id);
 
         /// <summary>
         /// 取得學生列表
