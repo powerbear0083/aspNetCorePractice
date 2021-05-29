@@ -49,7 +49,9 @@ namespace MockSchoolManagement
             {
                 // app.UseDeveloperExceptionPage();
                 // 為了讓開發模式看到 error page 故這樣使用
-                app.UseStatusCodePagesWithRedirects("~/Error/{0}");
+                // app.UseStatusCodePagesWithRedirects("~/Error/{0}");
+                // 推薦使用
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
             else
             {
