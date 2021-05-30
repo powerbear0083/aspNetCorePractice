@@ -130,6 +130,11 @@ namespace MockSchoolManagement.Controllers
         public IActionResult Edit(int id)
         {
             Student student = _studentRepository.GetStudentById(id);
+            if (student == null)
+            {
+                Response.StatusCode = 404;
+                return View("StundentNotFound", id);
+            }
             StudentEditViewModel studentEditViewModel = new StudentEditViewModel
             {
                 Id = student.Id,

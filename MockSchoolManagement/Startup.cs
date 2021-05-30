@@ -53,9 +53,10 @@ namespace MockSchoolManagement
                 // ±ÀÂË¨Ï¥Î
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
-            else
+            else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
             {
-                app.UseStatusCodePagesWithRedirects("~/Error/{0}");
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             
