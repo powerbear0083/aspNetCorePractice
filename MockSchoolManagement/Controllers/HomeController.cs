@@ -53,6 +53,7 @@ namespace MockSchoolManagement.Controllers
         // ? 使 id 方法參數可以是空的
         public ViewResult Details(int?id)
         {
+            throw new Exception("在 Details Views 拋出異常");
 
             // GetStudentById 介面方法要重新定義，不然會報錯
             var student = _studentRepository.GetStudentById(id);
