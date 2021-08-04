@@ -4,17 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace MockSchoolManagement.DataRepositories
 {
     public class SQLStudentRepository : IStudentRepository
     {
 
+        private readonly ILogger _logger;
         private readonly AppDbContext _context;
 
-        public SQLStudentRepository(AppDbContext context)
+        public SQLStudentRepository(
+            AppDbContext context,
+            ILogger<SQLStudentRepository> logger
+        )
         {
             _context = context;
+            _logger = logger;
         }
 
         public Student Delete(int id)
@@ -32,6 +38,12 @@ namespace MockSchoolManagement.DataRepositories
 
         public IEnumerable<Student> GetAllStudents()
         {
+            _logger.LogTrace("Students Trace 追蹤 Log");
+            _logger.LogDebug("Students Debug 除錯 log");
+            _logger.LogInformation("Students Information 資訊 Log");
+            _logger.LogWarning("Students Warning 警告 log");
+            _logger.LogError("Students Error 錯誤 Log");
+            _logger.LogCritical("Students Critical 嚴重 log");
             return _context.Students;
         }
 
