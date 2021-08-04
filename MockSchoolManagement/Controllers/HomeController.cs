@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace MockSchoolManagement.Controllers
 {
@@ -14,12 +15,18 @@ namespace MockSchoolManagement.Controllers
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ILogger _logger;
 
         // 使用 constructor 注入的方式注入 IStudentRepository
-        public HomeController(IStudentRepository studentRepository, IWebHostEnvironment webHostEnvironment)
+        public HomeController(
+            IStudentRepository studentRepository, 
+            IWebHostEnvironment webHostEnvironment,
+            ILogger<HomeController> logger
+        )
         {
             _studentRepository = studentRepository;
             _webHostEnvironment = webHostEnvironment;
+            _logger = logger;
         }
 
         /// <summary>
@@ -53,14 +60,19 @@ namespace MockSchoolManagement.Controllers
         // ? 使 id 方法參數可以是空的
         public ViewResult Details(int?id)
         {
-            throw new Exception("在 Details Views 拋出異常");
+            _logger.LogTrace(" Trace 追蹤 Log");
+            _logger.LogDebug("Debug 除錯 log");
+            _logger.LogInformation(" Information 資訊 Log");
+            _logger.LogWarning("Warning 警告 log");
+            _logger.LogError(" Error 錯誤 Log");
+            _logger.LogCritical("Critical 嚴重 log");
 
             // GetStudentById 介面方法要重新定義，不然會報錯
             var student = _studentRepository.GetStudentById(id);
             if (student == null)
             {
                 Response.StatusCode = 404;
-                return View("StudentNotFound", id);
+                return View("StudentNotFound", (int) id);
             }
             // Instantiate 實例化 HomeDetailsViewModel 並儲存 Student 詳細訊息和 PageTitle
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
