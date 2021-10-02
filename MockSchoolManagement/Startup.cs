@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using MockSchoolManagement.CustomerMiddlewares;
 
 namespace MockSchoolManagement
 {
@@ -42,6 +43,7 @@ namespace MockSchoolManagement
             
             services
                 .AddIdentity<IdentityUser, IdentityRole>()
+                .AddErrorDescriber<CustomIdentityErrorDescriber>()
                 .AddEntityFrameworkStores<AppDbContext>();
             // 使用 SQL DB ，通過 IConfiguration 去存去，自訂義名稱 MockStudentDBConnection
             services.AddDbContextPool<AppDbContext>(
