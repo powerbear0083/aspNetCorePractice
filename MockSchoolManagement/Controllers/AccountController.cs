@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 using MockSchoolManagement.ViewModels;
 
 namespace MockSchoolManagement.Controllers
@@ -23,7 +22,7 @@ namespace MockSchoolManagement.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -31,7 +30,7 @@ namespace MockSchoolManagement.Controllers
             {
                 var result =
                     await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-
+        
                 if (result.Succeeded)
                 {
                     return RedirectToAction("index", "home");
@@ -40,10 +39,15 @@ namespace MockSchoolManagement.Controllers
                 ModelState.AddModelError(string.Empty, "登入失敗，請重試");
                 
             }
-
+        
             return View(model);
         }
-        
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "home");
+        }
         // GET
         [HttpGet]
         public IActionResult Register()
@@ -86,11 +90,6 @@ namespace MockSchoolManagement.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
-        }
+
     }
 }
