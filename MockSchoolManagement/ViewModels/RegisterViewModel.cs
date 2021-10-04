@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MockSchoolManagement.ViewModels
 {
@@ -6,6 +7,7 @@ namespace MockSchoolManagement.ViewModels
     {
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", controller: "Account")]
         [Display(Name = "電子郵件")]
         public  string Email { get; set; }
        

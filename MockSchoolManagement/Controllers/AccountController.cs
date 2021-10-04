@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MockSchoolManagement.ViewModels;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MockSchoolManagement.Controllers
 {
@@ -90,6 +91,20 @@ namespace MockSchoolManagement.Controllers
             return View(model);
         }
 
+        [AcceptVerbs("Get", "Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsEmailInUse(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
 
+            if (user == null)
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"{email} 已經被註冊過了。");
+            }
+        }
     }
 }
